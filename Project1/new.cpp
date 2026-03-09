@@ -21,11 +21,18 @@ void ss(int data[], int n)
 }
 int main()
 {
-	int arr[] = { 5, 2, 9, 1, 5, 6 };
-	int i, j;
-	ss(arr, 7);
-	for (i = 0; i < sizeof(arr)/sizeof(int); i++)
-		printf("%d ", arr[i]);
+	int arr[100001] = { 0 };
+	int i, n,w;
+	scanf("%d%d", &n, &w);
+	for (i = 0; i < n; i++)
+	{
+		scanf("%d", &arr[i]);
+		ss(arr,i+1);
+		int cnt = (i + 1) * w / 100;
+		cnt = cnt>=1 ? cnt:1 ;
+		int line = arr[cnt - 1];
+		printf("%d", &arr[i]);
+	}
 	printf("\n");
 	return 0;
 }
